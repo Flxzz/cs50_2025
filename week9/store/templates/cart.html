@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>Cart</h1>
+
+<ul>
+    {% for book in books %}
+
+    <li>{{book.title}}</li>
+
+    <form action="/remove" method="POST">
+        <input name="id" type="hidden" value="{{book.id}}">
+        <button type="submit"> Remove </button>
+    </form>
+
+    {% endfor %}
+</ul>
+
+<a href="/"> Back to Books. </a>
+
+{% endblock %}
